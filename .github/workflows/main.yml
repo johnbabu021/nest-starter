@@ -34,7 +34,7 @@ jobs:
           push: true
           tags: johnbabu021/nest-starter:latest
           cache-from: type=local,dest=/tmp/.buildx-cache
-          cache-to: type=local,det=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache
       - name: image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
 
