@@ -9,9 +9,10 @@ import { EliController } from './eli.controller';
 import { EliService } from './eli.service';
 import { LoggerMiddleware } from './eli.middleware';
 import { ElController } from './el.controller';
+import { HttpExceptionFilter } from './httpExceptionFilters';
 @Global()
 @Module({
-  providers: [EliService],
+  providers: [{ provide: EliService, useClass: HttpExceptionFilter }],
   controllers: [EliController, ElController],
   exports: [EliService],
 })
