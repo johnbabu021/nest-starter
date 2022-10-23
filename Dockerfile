@@ -5,3 +5,5 @@ COPY ./package.json .
 RUN pnpm install
 COPY . .
 CMD ["pnpm","start:dev"]
+#TODO fix this later
+#manga

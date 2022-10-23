@@ -10,9 +10,13 @@ import { EliService } from './eli.service';
 import { LoggerMiddleware } from './eli.middleware';
 import { ElController } from './el.controller';
 import { HttpExceptionFilter } from './httpExceptionFilters';
+import { APP_FILTER } from '@nestjs/core';
 @Global()
 @Module({
-  providers: [{ provide: EliService, useClass: HttpExceptionFilter }],
+  providers: [
+    EliService,
+    { provide: APP_FILTER, useClass: HttpExceptionFilter },
+  ],
   controllers: [EliController, ElController],
   exports: [EliService],
 })
